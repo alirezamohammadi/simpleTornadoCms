@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>simple blog</title>
+</head>
+<body>
+    welcome to our blog<br />
+    list of our articles:<br />
+    <ul>
+    {%for item in article_list%}
+        <li><a href="article/{{item[1]}}">{{item[0]}}</a></li>
+    {%end%}
+    </ul>
+    <a href="/add_article">Add article</a>
+</body>
+</html>
