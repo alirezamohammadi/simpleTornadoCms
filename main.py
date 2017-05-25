@@ -10,20 +10,20 @@ conn=sqlite3.connect("blog_db.sqlite")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         cur=conn.execute("SELECT title, id FROM article")
-        self.render("home.html",article_list = cur.fetchall())
+        self.render("templates/home.html",article_list = cur.fetchall())
 
 class ArticleHandler(tornado.web.RequestHandler):
     def get(self,article_id):
         cur=conn.execute("SELECT * FROM article WHERE id='%s'"%(article_id))
         result=cur.fetchone()
-        self.render("article.html",title=result[1],article=result[2])
+        self.render("templates/article.html",title=result[1],article=result[2])
 
 class AddArticle(tornado.web.RequestHandler):
     def get(self):
         if self.get_secure_cookie("lg") == None:
             self.write("please login first") 
         else:
-            self.render("add_article.html")
+            self.render("templates/add_article.html")
 
 class AddResult(tornado.web.RequestHandler):
     def post(self):
@@ -40,7 +40,7 @@ def generate_cookie(length):
 
 class LoginHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("login.html")
+        self.render("templates/login.html")
     
     def post(self):
         user_name=self.get_argument("user_name")
@@ -62,7 +62,6 @@ if __name__=="__main__":
     
     settings = {
         "static_path": os.path.join(os.path.dirname(__file__), "static"),
-        "static_url_prefix": "/resources/",
         "cookie_secret":"__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
     }
 
