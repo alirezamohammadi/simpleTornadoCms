@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
-        <form method="POST">
-            User Name:<br />
-            <input type="text" name="user_name" /><br />
-            Password:<br />
-            <input type="password" name="password" /><br />
-            <input type="submit" value="Login" /><br />
-        </form>
-    </body>
-</html>
+{% extends "base.html" %}
+
+
+{% block title %}Login{% end %}
+
+
+{% block page_content %}
+<h1>Login</h1>
+<form method="POST">
+    User Name:<br />
+    <input type="text" name="user_name" /><br />
+    Password:<br />
+    <input type="password" name="password" /><br />
+    <input type="submit" value="Login" /><br />
+</form>
+{% end %}

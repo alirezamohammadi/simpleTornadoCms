@@ -1,19 +1,18 @@
-<!doctype html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Add article</title>
-</head>
-<body>
-    <h1>Add article</h1>
-    <form method="post" action="/add_article">
-        Title:<br />
-        <input type="text" name="title" required /><br />
-        ID:<br />
-        <input type="text" name="id" required /><br />
-        Text:<br />
-        <textarea name="text" required></textarea><br />
-        <input type="submit" value="Insert Into DB" /><br />
-    </form>
-</body>
-</html>
+
+{% block title %}Add article{% end %}
+
+
+{% block page_content %}
+<h1>Add article</h1>
+<form method="post" action="/add_article">
+    Title:<br />
+    <input type="text" name="title" required /><br />
+    ID:<br />
+    <input type="text" name="id" required /><br />
+    Text:<br />
+    <textarea name="text" required></textarea><br />
+    <input type="submit" value="Insert Into DB" /><br />
+</form>
+{% end %}
