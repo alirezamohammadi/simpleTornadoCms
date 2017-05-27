@@ -25,7 +25,6 @@ class AddArticle(tornado.web.RequestHandler):
         else:
             self.render("templates/add_article.html")
 
-class AddResult(tornado.web.RequestHandler):
     def post(self):
         id=self.get_argument("id")
         title=self.get_argument("title")
@@ -70,7 +69,6 @@ if __name__=="__main__":
         (r'/login',LoginHandler),
         (r'/article/([_A-Za-z][_a-zA-Z0-9]*)',ArticleHandler),
         (r'/add_article',AddArticle),
-        (r'/add_article/result',AddResult),
         (r'/logout',LogoutHandler),
     ],**settings)
     app.listen(8000)
