@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block title %}{% end %}</title>
+</head>
+
+<body>
+    <header>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+    </header>
+    {% block page_content %}{% end %}
+    <footer>
+        Visit us on <a href="https://github.com/Alirezamohammadi/simpleTornadoCms">github</a>.
+    </footer>
+</body>
+
+</html>
